@@ -5,6 +5,7 @@ class Room {
     this.description = description;
     this.exits = {};
     this.items = [];
+    this.enemies = [];
   }
 
   getEnemies() {
@@ -54,13 +55,28 @@ class Room {
   getItemByName(name) {
 
     // Fill this in
+    for (let i = 0; i < this.items.length; i++){
+      let itemName = this.items[i]["name"];
+      if (itemName === name) {
+        return this.items[i];
+      }
+    }
 
   }
 
   getEnemyByName(name) {
 
     // Fill this in
+    //console.log(this.getEnemies());
+    let arrayOfEnemies = this.getEnemies();
+    for (let i = 0; i < arrayOfEnemies.length; i++){
+      let enemy = arrayOfEnemies[i];
+      if (enemy["name"] === name) {
+        return enemy;
+      };
+    }
 
+  }
 }
 
 module.exports = {
